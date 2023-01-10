@@ -1,15 +1,23 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\kategoriaTermekekController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
 
 
-Route::get('/', function () {
+Route::get("kategoria/{url}",[kategoriaTermekekController::class,'getCategoryElement'])->name("kategoria");
+
+Route::get("/",function(){
+    return view("welcome");
+});
+
+
+/*Route::get('/', function () {
     $kategoriak = DB::select("SELECT kategoriak.nev, urlek.url FROM kategoriak INNER JOIN urlek ON (kategoriak.k_id=urlek.kapcsolat) WHERE urlek.tipus='kategoria'");
     return view('welcome',["kategoriak" => $kategoriak]);
-});
+});*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -8,7 +8,7 @@
         <ul class="navbar-nav me-auto">
           @foreach ($kategoriak as $item)
             <li class="nav-item">
-                <a class="nav-link" href="{{$item->url}}">{{$item->nev}}</a>
+                <a class="nav-link" href="{{url('kategoria')}}/{{$item->url}}">{{$item->nev}}</a>
             </li> 
           @endforeach
           
